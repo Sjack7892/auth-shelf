@@ -6,7 +6,7 @@ Our client, Prime Digital Academy: Room 2, has asked for an app to simulate the 
 
 > NOTE: Do not clone this repository.
 
-* Don't Fork or Clone. Instead, have one memeber of your group click the `Clone or Download` button and select `Download Zip`.
+* Don't Fork or Clone. Instead, have one member of your group click the `Clone or Download` button and select `Download Zip`.
 * Unzip the project and start with the code in that folder.
 * Create a new GitHub project and push this code to the new repository.
 * Add members of your group to the repository.

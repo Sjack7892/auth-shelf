@@ -1,12 +1,22 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * Get all of the items on the shelf
  */
-router.get('/', (req, res) => {
-    res.sendStatus(200); // For testing only, can be removed
+//  GET call is to /api/shelf 
+router.get('/', rejectUnauthenticated, (req, res) => {
+    queryString = `SELECT * FROM "item";`;
+    pool.query(queryString)
+    .then(result => {
+        console.log('Get this info from database',result.rows);
+        res.send(result.rows);
+    }).catch(error => {
+        res.sendStatus(500);
+    })   
+    // res.sendStatus(200); // For testing only, can be removed
 });
 
 
