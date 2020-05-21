@@ -11,20 +11,29 @@ class InfoPage extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_ITEMS' })
   }
+  handleClick = () =>{
+    console.log('clicked!');
+  }
+
+  handleChangeFor = () =>{
+    
+  }
 
   render() {
     return (
       <div>
         <h1>Info Page</h1>
-        
-          Info here: {this.props.reduxState.itemsReducer.map((item) => {
+        <input type="text" placeholder="Add item..." onChange={this.handleChangeFor}/>
+        <button onClick={this.handleClick}>ADD</button>
+
+        {this.props.reduxState.itemsReducer.map((item) => {
           return (
             <div key={item.id}>
               <p>{item.description}</p>
             </div>
           )
         })}
-        
+
       </div>
     )
   }
