@@ -8,17 +8,23 @@ import { connect } from 'react-redux';
 
 class InfoPage extends Component {
 
-  componentDidMount () {
-    this.props.dispatch({type: 'FETCH_ITEMS'})
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_ITEMS' })
   }
 
   render() {
     return (
       <div>
         <h1>Info Page</h1>
-        <p>
-          Info here: {JSON.stringify(this.props.reduxState.ItemsReducer.description)}
-        </p>
+        
+          Info here: {this.props.reduxState.itemsReducer.map((item) => {
+          return (
+            <div key={item.id}>
+              <p>{item.description}</p>
+            </div>
+          )
+        })}
+        
       </div>
     )
   }
