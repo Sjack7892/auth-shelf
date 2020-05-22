@@ -1,5 +1,5 @@
 const itemsReducer = (state = [], action) => {
-    console.log(action.payload);
+    console.log('in items reducer:', action.payload);
     switch (action.type) {
       case 'SET_ITEMS':
         return action.payload;

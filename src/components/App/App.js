@@ -55,7 +55,7 @@ class App extends Component {
               exact
               path="/info"
               component={InfoPage}
-              // render={(props) => <InfoPage {...props} items={this.props.reduxState}/>}
+              // render={(props) => <InfoPage {...props} items={this.props.reduxState.itemsReducer}/>}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
@@ -66,6 +66,5 @@ class App extends Component {
   )}
 }
 
-// const putReduxStateOnState = (reduxState) => ({reduxState});
-
-export default connect()(App);
+const putReduxStateOnState = (reduxState) => ({reduxState});
+export default connect(putReduxStateOnState)(App);
